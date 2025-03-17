@@ -1,15 +1,8 @@
 import Product from "../models/add-product.js";
 import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
 
-const addProuctRepository = async (req, res) => {
+const addProuctRepository = async (productInfo, res) => {
   try {
-    const { name, price, dealer } = req.body;
-    let productInfo = { name: name.trim(), price: +price };
-
-    if (!!dealer) {
-      productInfo = { ...productInfo, dealer: dealer };
-    }
-
     const product = new Product(productInfo);
 
     await product

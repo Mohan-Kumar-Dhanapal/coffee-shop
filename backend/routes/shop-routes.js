@@ -1,9 +1,9 @@
 import express from "express";
-import viewProducrController from "../controller/view-product-controller.js";
+import viewProducrController from "../controller/view-product-ctrl.js";
 
 const Router = express.Router();
 
-Router.post("/getProduct", (req, res, next) => {
+Router.post("/get/product", (req, res, next) => {
   try {
     return viewProducrController(req, res);
   } catch (err) {

@@ -1,9 +1,17 @@
+import mongoose from "mongoose";
+
 import repository from "../repository/delete-product-repo.js";
 import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
 
 const deleteProductService = async (req, res) => {
   try {
-    return await repository(req, res);
+    const { productId } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(productId)) {
+      return res.status(400).json({ message: "Invalid product ID format" });
+    }
+
+    return await repository(productId, res);
   } catch (err) {
     res.send(INTERNAL_SERVER_ERROR);
   }

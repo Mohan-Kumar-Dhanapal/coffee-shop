@@ -1,14 +1,15 @@
 import Product from "../models/add-product.js";
 import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
 
-const deleteProuctRepository = async (req, res) => {
+const deleteProuctRepository = async (productId, res) => {
   try {
-    const { productId } = req.params;
+    const deleteResponse = await Product.deleteOne({ _id: productId });
 
-    const deleteResponse = await Product.findByIdAndDelete(productId);
-    console.log(deleteResponse);
-
-    return res.send({ status: 200, message: "Product added successfully" });
+    if (deleteResponse?.deletedCount > 0) {
+      return res.status(200).json({ message: "Data deleted successfully" });
+    } else {
+      return res.status(200).json({ message: "No data found with this ID." });
+    }
   } catch (err) {
     return res.send(INTERNAL_SERVER_ERROR);
   }

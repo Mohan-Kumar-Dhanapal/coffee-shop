@@ -6,7 +6,7 @@ import deleteProductController from "../controller/delete-product-ctrl.js";
 
 const Router = express.Router();
 
-Router.post("/addProduct", (req, res, next) => {
+Router.post("/add/product", (req, res, next) => {
   try {
     return addProductController(req, res);
   } catch (err) {
