@@ -38,12 +38,11 @@ export const ProductCard = (props: any) => {
             }}
             aria-label="Delete Product"
             className="btn-error"
-            disabled
           >
             Delete <InlineLoader />
           </button>
 
-          <button aria-label="Edit  Product" className="btn-primary" disabled>
+          <button aria-label="Edit  Product" className="btn-primary">
             Edit
           </button>
         </div>

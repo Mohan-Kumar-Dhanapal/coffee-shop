@@ -9,11 +9,9 @@ export const postProduct = async (productData: any) => {
   }
 };
 
-export const fetchProduct = async () => {
+export const fetchProducts = async () => {
   try {
     const res = await client("POST", "/get/product");
-    console.log("GEt", res);
-
     return res;
   } catch (error) {
     throw error;
@@ -32,8 +30,6 @@ export const updateProduct = async (productData: any) => {
 export const deleteProduct = async (productId: string) => {
   try {
     const res = await client("DELETE", `/admin/product/${productId}`);
-    console.log("In dele", res);
-
     return res;
   } catch (error) {
     throw error;
