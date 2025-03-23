@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
-import { deleteProduct, fetchProducts } from "../api/routes";
+import { deleteProduct, fetchProducts, postProduct } from "../api/routes";
 import { ProductCard } from "../components/product/ProductCard";
+import ProductForm from "../components/product/ProductForm";
+import { DEFAULT_PRODUCT_DATA } from "../utils/constants";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
+  const [showForm, setShowForm] = useState<boolean>(false);
+
+  let newProduct = { ...DEFAULT_PRODUCT_DATA };
 
   const getProducts = async () => {
     try {
@@ -13,7 +18,20 @@ export const Products = () => {
         setProducts(data);
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error getProducts Fn:", error);
+    }
+  };
+
+  const addProduct = async (newProduct: any) => {
+    try {
+      const { status, data } = await postProduct(newProduct);
+
+      if (status === 200) {
+        getProducts();
+        setShowForm(false);
+      }
+    } catch (error) {
+      console.error("Error addProduct fn:", error);
     }
   };
 
@@ -39,10 +57,24 @@ export const Products = () => {
 
   return (
     <>
+      {showForm && (
+        <ProductForm
+          formAction={"add"}
+          formData={newProduct}
+          onActionClick={addProduct}
+          onClose={() => {
+            setShowForm(false);
+          }}
+        />
+      )}
       <div className="flex justify-between">
         <div>Search</div>
         <div>
-          <button type="button" className="btn-primary">
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={() => setShowForm(true)}
+          >
             Add product
           </button>
         </div>

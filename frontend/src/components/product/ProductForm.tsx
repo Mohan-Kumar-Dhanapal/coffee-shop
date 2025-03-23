@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../shared/Modal";
 import Wallpaper from "../../asserts/images/wallpaper.jpg";
+import { DEFAULT_PRODUCT_DATA } from "../../utils/constants";
 
 interface FormProps {
   formAction: string;
@@ -15,13 +16,13 @@ const ProductForm = ({
   onActionClick,
   onClose,
 }: FormProps) => {
-  const defalutProduct = { name: "", price: "", category: "", dealer: "" };
-  const [productData, setProductData] = useState(formData || defalutProduct);
+  const [productData, setProductData] = useState(
+    formData || { ...DEFAULT_PRODUCT_DATA }
+  );
 
   const handleOnChange = (e: any) => {
     try {
       const { name, value } = e.target;
-      console.log("Mohan", name, value);
 
       setProductData((prev: any) => ({ ...prev, [name]: value }));
     } catch (error) {
