@@ -15,8 +15,6 @@ export const SideBar = () => {
   ];
 
   const { pathname } = useLocation();
-  console.log(pathname);
-
   const navigate = useNavigate();
 
   return (
