@@ -18,9 +18,9 @@ export const fetchProducts = async () => {
   }
 };
 
-export const updateProduct = async (productData: any) => {
+export const putProduct = async (productData: any) => {
   try {
-    const res = await client("UPDATE", "/admin/product", productData);
+    const res = await client("PUT", "/admin/product", productData);
     return res;
   } catch (error) {
     throw error;
