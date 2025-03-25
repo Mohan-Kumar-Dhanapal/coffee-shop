@@ -1,8 +1,12 @@
 import { useState } from "react";
 import Wall from "../../asserts/images/wallpaper.jpg";
 
-export const CartItem = ({ product, handleCounter }: any) => {
-  const [quantity, setQuantity] = useState<number>(0);
+export const CartItem = ({
+  product,
+  handleCounter,
+  billIndex,
+  quantity,
+}: any) => {
   return (
     <article className="flex gap-4 p-4 border border-gray-300 rounded-lg shadow-md w-[280px]">
       {/* Product Image */}
@@ -27,10 +31,7 @@ export const CartItem = ({ product, handleCounter }: any) => {
             aria-label="Decrease quantity"
             className="px-2 py-1 bg-gray-200 rounded cursor-pointer border-none"
             onClick={() => {
-              if (quantity != 0) {
-                setQuantity((prev) => prev - 1);
-              }
-              handleCounter(product, "decrement");
+              handleCounter(product, "decrement", billIndex);
             }}
           >
             -
@@ -42,8 +43,7 @@ export const CartItem = ({ product, handleCounter }: any) => {
             aria-label="Increase quantity"
             className="px-2 py-1 bg-gray-200 rounded cursor-pointer"
             onClick={() => {
-              setQuantity((prev) => prev + 1);
-              handleCounter(product, "increment");
+              handleCounter(product, "increment", billIndex);
             }}
           >
             +
