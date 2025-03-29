@@ -1,14 +1,22 @@
 import express from "express";
 
-import addProductController from "../controller/add-product-ctrl.js";
+import addProductController from "../controller/product/add-product-ctrl.js";
 import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
-import deleteProductController from "../controller/delete-product-ctrl.js";
+import deleteProductController from "../controller/product/delete-product-ctrl.js";
 
 const Router = express.Router();
 
-Router.post("/add/product", (req, res, next) => {
+Router.post("/product", (req, res, next) => {
   try {
     return addProductController(req, res);
+  } catch (err) {
+    return res.send(INTERNAL_SERVER_ERROR);
+  }
+});
+
+Router.put("/product", (req, res) => {
+  try {
+    return updateProductController(req, res);
   } catch (err) {
     return res.send(INTERNAL_SERVER_ERROR);
   }

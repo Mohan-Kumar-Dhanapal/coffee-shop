@@ -1,10 +1,10 @@
 import Ajv from "ajv";
 
-import ADD_PRODUCT_SCHEMA from "../validator-schema/add-product-schema.js";
-import service from "../service/add-product-srvc.js";
-import { isNotEmptyString } from "../utils/utils.js";
+import ADD_PRODUCT_SCHEMA from "../../validator-schema/add-product-schema.js";
+import service from "../../service/product/add-product-srvc.js";
+import { isNotEmptyString } from "../../utils/utils.js";
 
-const addProducrController = async (req, res) => {
+const addProductController = async (req, res) => {
   const ajv = new Ajv({ allErrors: true });
 
   const validate = ajv.compile(ADD_PRODUCT_SCHEMA);
@@ -26,4 +26,4 @@ const addProducrController = async (req, res) => {
   return await service(req, res);
 };
 
-export default addProducrController;
+export default addProductController;

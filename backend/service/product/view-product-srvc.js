@@ -1,6 +1,9 @@
-import repository from "../repository/view-product-repo.js";
-import { INTERNAL_SERVER_ERROR, PRODUCT_PER_PAGE } from "../utils/constants.js";
-import { isNotEmptyString } from "../utils/utils.js";
+import repository from "../../repository/product/view-product-repo.js";
+import {
+  INTERNAL_SERVER_ERROR,
+  PRODUCT_PER_PAGE,
+} from "../../utils/constants.js";
+import { isNotEmptyString } from "../../utils/utils.js";
 
 const viewProductService = async (req, res) => {
   try {

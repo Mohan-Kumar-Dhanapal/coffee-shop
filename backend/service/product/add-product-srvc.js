@@ -1,5 +1,5 @@
-import repository from "../repository/add-product-repo.js";
-import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
+import repository from "../../repository/product/add-product-repo.js";
+import { INTERNAL_SERVER_ERROR } from "../../utils/constants.js";
 
 const addProductService = async (req, res) => {
   try {
