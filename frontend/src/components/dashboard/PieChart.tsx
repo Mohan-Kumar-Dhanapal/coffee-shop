@@ -10,9 +10,9 @@ const data = [
 
 const COLORS = ["#4F46E5", "#22C55E", "#F59E0B", "#EF4444"]; // Custom colors
 
-const MoneyUsage = () => {
+const PieChartComponent = () => {
   return (
-    <div className="w-full max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
+    <div className="w-[50%] max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
@@ -33,9 +33,11 @@ const MoneyUsage = () => {
           <Tooltip />
         </PieChart>
       </ResponsiveContainer>
-      <h2 className="text-xl font-bold text-center mb-4">Weekly Report</h2>
+      <h2 className="text-xl font-bold text-center mb-4">
+        Weekly product usage
+      </h2>
     </div>
   );
 };
 
-export default MoneyUsage;
+export default PieChartComponent;
