@@ -1,6 +1,6 @@
 import Ajv from "ajv";
 
-import ADD_PRODUCT_SCHEMA from "../../validator-schema/add-product-schema.js";
+import ADD_PRODUCT_SCHEMA from "../../validator-schema/product/add-product-schema.js";
 import service from "../../service/product/add-product-srvc.js";
 import { isNotEmptyString } from "../../utils/utils.js";
 
