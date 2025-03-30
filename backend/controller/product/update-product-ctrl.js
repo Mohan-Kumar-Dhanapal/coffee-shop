@@ -3,7 +3,7 @@ import Ajv from "ajv";
 import UPDATE_PRODUCT_SCHEMA from "../../validator-schema/update-product-schema.js";
 import service from "../../service/update-product-srvc.js";
 
-const addProductController = async (req, res) => {
+const updateProductController = async (req, res) => {
   const ajv = new Ajv({ allErrors: true });
 
   const validate = ajv.compile(UPDATE_PRODUCT_SCHEMA);
@@ -25,4 +25,4 @@ const addProductController = async (req, res) => {
   return await service(req, res);
 };
 
-export default addProductController;
+export default updateProductController;

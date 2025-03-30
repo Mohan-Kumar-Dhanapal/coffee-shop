@@ -7,6 +7,7 @@ import { addStaffcontroller } from "../controller/staff/add-staff-ctrl.js";
 import { deleteStaffController } from "../controller/staff/delete-staff-ctrl.js";
 import { viewStaffController } from "../controller/staff/view-staff-ctrl.js";
 import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
+import { updateStaffController } from "../controller/staff/update-staff-ctrl.js";
 
 const Router = express.Router();
 
