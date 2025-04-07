@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-import repository from "../repository/delete-product-repo.js";
-import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
+import repository from "../../repository/product/delete-product-repo.js";
+import { INTERNAL_SERVER_ERROR } from "../../utils/constants.js";
 
 const deleteProductService = async (req, res) => {
   try {

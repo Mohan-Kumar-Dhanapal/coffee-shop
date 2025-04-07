@@ -1,5 +1,5 @@
-import service from "../service/delete-product-srvc.js";
-import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
+import service from "../../service/product/delete-product-srvc.js";
+import { INTERNAL_SERVER_ERROR } from "../../utils/constants.js";
 
 const deleteProductController = async (req, res) => {
   try {

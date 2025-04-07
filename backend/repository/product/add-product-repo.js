@@ -1,5 +1,5 @@
-import Product from "../models/add-product.js";
-import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
+import Product from "../../models/add-product.js";
+import { INTERNAL_SERVER_ERROR } from "../../utils/constants.js";
 
 const addProuctRepository = async (productInfo, res) => {
   try {

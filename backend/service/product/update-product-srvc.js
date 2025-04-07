@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 import repository from "../repository/update-product-repo.js";
-import { INTERNAL_SERVER_ERROR } from "../utils/constants.js";
+import { INTERNAL_SERVER_ERROR } from "../../utils/constants.js";
 
 const updateProductService = async (req, res) => {
   try {
